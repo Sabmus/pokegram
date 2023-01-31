@@ -10,22 +10,6 @@ function SVG({ title }) {
   switch (title) {
     case "compass":
       return <Compass />;
-    case "heart":
-      return <Heart />;
-    case "house":
-      return <House />;
-    case "message":
-      return <Message />;
-    case "magnifier":
-      return <Magnifier />;
-    case "plus":
-      return <Plus />;
-    case "reel":
-      return <Reel />;
-    case "profile":
-      return <House />;
-    default:
-      <House />;
   }
 }
 
