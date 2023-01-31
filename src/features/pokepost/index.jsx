@@ -1,4 +1,11 @@
+import { useState } from "react";
+
 import Comment from "./components/comment/comment.component";
+
+import { ReactComponent as Heart } from "../../assets/svg/heart.svg";
+import { ReactComponent as HeartClicked } from "../../assets/svg/heartClicked.svg";
+import { ReactComponent as MessageGlobe } from "../../assets/svg/messageGlobe.svg";
+import { ReactComponent as MessageSend } from "../../assets/svg/messageSend.svg";
 
 import {
   PostWrapper,
@@ -8,6 +15,12 @@ import {
 } from "./assets/styles";
 
 function PokePost({ posts }) {
+  const [heartClicked, setHeartClicked] = useState(false);
+
+  const onClickHeartHandler = () => {
+    setHeartClicked(!heartClicked);
+  };
+
   return (
     <PostWrapper>
       <PostHeader>
@@ -18,9 +31,15 @@ function PokePost({ posts }) {
       <PostContent>big ass image</PostContent>
       <PostInteraction>
         <div className="interactions">
-          <span>heart</span>
-          <span>msg</span>
-          <span>send</span>
+          <span onClick={onClickHeartHandler}>
+            {heartClicked ? (
+              <HeartClicked className="interaction-heart-clicked" />
+            ) : (
+              <Heart className="interaction-svg" />
+            )}
+          </span>
+          <MessageGlobe className="interaction-svg" />
+          <MessageSend className="interaction-svg" />
         </div>
         <span>save</span>
       </PostInteraction>

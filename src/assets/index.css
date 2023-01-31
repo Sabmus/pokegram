@@ -19,6 +19,8 @@
   --on-background: #ffffff;
   --on-surface: #ffffff;
   --on-error: #000000;
+
+  --heart-clicked: #ed4956;
 }
 
 *,

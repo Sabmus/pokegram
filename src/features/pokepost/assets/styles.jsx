@@ -25,9 +25,22 @@ export const PostContent = styled.div`
 export const PostInteraction = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-top: 10px;
 
   & .interactions {
     display: flex;
     gap: 20px;
+
+    svg[class="interaction-svg"]:hover {
+      cursor: pointer;
+      fill: var(--on-background);
+      opacity: 50%;
+    }
+
+    svg[class="interaction-heart-clicked"]:hover {
+      cursor: pointer;
+      fill: var(--heart-clicked);
+      opacity: 100%;
+    }
   }
 `;
