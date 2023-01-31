@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Burger = styled.label`
   position: relative;
-  width: 30px;
-  height: 20px;
+  width: 22px;
+  height: 18px;
   background: transparent;
   cursor: pointer;
 
@@ -43,7 +43,7 @@ export const Burger = styled.label`
 
   input:checked ~ span:nth-of-type(1) {
     transform: rotate(45deg);
-    top: -1px;
+    top: 0px;
     left: 3px;
   }
 
@@ -54,7 +54,7 @@ export const Burger = styled.label`
 
   input:checked ~ span:nth-of-type(3) {
     transform: rotate(-45deg);
-    top: 20px;
+    top: 16px;
     left: 3px;
   }
 `;

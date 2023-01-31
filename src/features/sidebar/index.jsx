@@ -2,47 +2,57 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import Navigation from "../../components/navigation/navigation.component";
-import BurgerCheck from "../../components/burger/burger.component";
 import Options from "./components/options/options.component";
 
 import routes from "./data/routes";
 import SVG from "../../components/svg/svg.component";
+import { ReactComponent as Parallel } from "../../assets/svg/threeparallel.svg";
 
 import {
   SidebarWrapper,
   NavigationWrapper,
-  OptionsWrapper,
+  TitleWrapper,
 } from "./assets/styles";
 
 function Sidebar() {
-  const [burgerCheck, setBurgerCheck] = useState(false);
+  const [showOptions, setShowOptions] = useState(false);
+
+  const onClickHandler = () => {
+    setShowOptions(!showOptions);
+  };
 
   return (
-    <div style={{ height: "100vh", position: "fixed", display: "flex" }}>
+    <div
+      style={{
+        height: "100vh",
+        position: "fixed",
+        display: "flex",
+      }}
+    >
       <SidebarWrapper>
         {/* Title */}
-        <div>
-          <h3>Pokegram</h3>
-        </div>
+        <TitleWrapper>
+          <h3 className="header-title">Pokegram</h3>
+        </TitleWrapper>
         {/* Navigation */}
         <NavigationWrapper>
           {routes.map((route) => (
             <Link to={route.path} key={route.title}>
               <Navigation>
                 <SVG title={route.svg} />
-                {route.title}
+                <span className="navigation-title">{route.title}</span>
               </Navigation>
             </Link>
           ))}
         </NavigationWrapper>
         {/* Options */}
-        <OptionsWrapper>
-          <Options />
-          <Navigation>
-            <BurgerCheck />
-            MAS
+        <div>
+          <Options showOptions={showOptions} />
+          <Navigation onClickHandler={onClickHandler}>
+            <Parallel />
+            <span className="navigation-title">Mas</span>
           </Navigation>
-        </OptionsWrapper>
+        </div>
       </SidebarWrapper>
     </div>
   );

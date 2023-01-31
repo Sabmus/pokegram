@@ -1,6 +1,6 @@
-function Options() {
+function Options({ showOptions }) {
   return (
-    <div>
+    <div style={{ display: showOptions ? "block" : "none" }}>
       <div>Aasdasd</div>
       <div>Aasdasd</div>
       <div>Aasdasd</div>

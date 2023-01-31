@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "../App";
 import ErrorPage from "../pages/ErrorPage";
+import Index from "../pages/Index";
 
 const router = createBrowserRouter([
   {
@@ -9,6 +10,10 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
+      {
+        index: true,
+        element: <Index />,
+      },
       {
         path: "explorar",
         element: <div>explorar</div>,
