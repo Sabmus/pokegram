@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Pokegram",
+  "name": "A social network for pokefriends",
   "icons": [
     {
       "src": "favicon.ico",
