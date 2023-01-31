@@ -7,7 +7,6 @@ import { ReactComponent as Plus } from "../../assets/svg/plus.svg";
 import { ReactComponent as Reel } from "../../assets/svg/reel.svg";
 
 function SVG({ title }) {
-  console.log(title);
   switch (title) {
     case "compass":
       return <Compass />;

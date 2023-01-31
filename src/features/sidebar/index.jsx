@@ -1,4 +1,9 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
 import Navigation from "../../components/navigation/navigation.component";
+import BurgerCheck from "../../components/burger/burger.component";
+import Options from "./components/options/options.component";
 
 import routes from "./data/routes";
 import SVG from "../../components/svg/svg.component";
@@ -10,6 +15,8 @@ import {
 } from "./assets/styles";
 
 function Sidebar() {
+  const [burgerCheck, setBurgerCheck] = useState(false);
+
   return (
     <div style={{ height: "100vh", position: "fixed", display: "flex" }}>
       <SidebarWrapper>
@@ -20,13 +27,22 @@ function Sidebar() {
         {/* Navigation */}
         <NavigationWrapper>
           {routes.map((route) => (
-            <Navigation key={route.title} route={route}>
-              <SVG title={route.svg} />
-            </Navigation>
+            <Link to={route.path} key={route.title}>
+              <Navigation>
+                <SVG title={route.svg} />
+                {route.title}
+              </Navigation>
+            </Link>
           ))}
         </NavigationWrapper>
         {/* Options */}
-        <OptionsWrapper>||| Mas</OptionsWrapper>
+        <OptionsWrapper>
+          <Options />
+          <Navigation>
+            <BurgerCheck />
+            MAS
+          </Navigation>
+        </OptionsWrapper>
       </SidebarWrapper>
     </div>
   );
