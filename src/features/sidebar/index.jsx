@@ -39,7 +39,15 @@ function Sidebar() {
           {routes.map((route) => (
             <Link to={route.path} key={route.title}>
               <Navigation>
-                <SVG title={route.svg} />
+                <SVG
+                  path={route.svgPath}
+                  color={"var(--on-background)"}
+                  fill={"var(--on-background)"}
+                  height="24"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="24"
+                />
                 <span className="navigation-title">{route.title}</span>
               </Navigation>
             </Link>
