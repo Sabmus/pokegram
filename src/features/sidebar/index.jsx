@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Navigation from "../../components/navigation/navigation.component";
 import Options from "./components/options/options.component";
 
-import routes from "./data/routes";
+import routes from "../../data/routes";
 import SVG from "../../components/svg/svg.component";
 import { ReactComponent as Parallel } from "../../assets/svg/threeparallel.svg";
 

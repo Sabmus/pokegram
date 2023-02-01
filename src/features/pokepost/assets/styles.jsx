@@ -31,13 +31,24 @@ export const PostInteraction = styled.div`
     display: flex;
     gap: 20px;
 
+    .heart-pump {
+      animation: beat 0.25s ease-in-out;
+      transform-origin: center;
+    }
+
+    @keyframes beat {
+      to {
+        transform: scale(1.2);
+      }
+    }
+
     svg[class="interaction-svg"]:hover {
       cursor: pointer;
       fill: var(--on-background);
       opacity: 50%;
     }
 
-    svg[class="interaction-heart-clicked"]:hover {
+    svg[class="interaction-heart"]:hover {
       cursor: pointer;
       fill: var(--heart-clicked);
       opacity: 100%;

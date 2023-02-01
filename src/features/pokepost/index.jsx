@@ -2,10 +2,11 @@ import { useState } from "react";
 
 import Comment from "./components/comment/comment.component";
 
-import { ReactComponent as Heart } from "../../assets/svg/heart.svg";
-import { ReactComponent as HeartClicked } from "../../assets/svg/heartClicked.svg";
 import { ReactComponent as MessageGlobe } from "../../assets/svg/messageGlobe.svg";
 import { ReactComponent as MessageSend } from "../../assets/svg/messageSend.svg";
+
+import SVG from "../../components/svg/svg.component";
+import routes from "../../data/routes";
 
 import {
   PostWrapper,
@@ -15,6 +16,7 @@ import {
 } from "./assets/styles";
 
 function PokePost({ posts }) {
+  const heartSvg = routes.find((item) => item.title === "Notificaciones");
   const [heartClicked, setHeartClicked] = useState(false);
 
   const onClickHeartHandler = () => {
@@ -32,11 +34,22 @@ function PokePost({ posts }) {
       <PostInteraction>
         <div className="interactions">
           <span onClick={onClickHeartHandler}>
-            {heartClicked ? (
-              <HeartClicked className="interaction-heart-clicked" />
-            ) : (
-              <Heart className="interaction-svg" />
-            )}
+            <SVG
+              path={heartClicked ? heartSvg.svgPathClicked : heartSvg.svgPath}
+              color={
+                heartClicked ? "var(--heart-clicked)" : "var(--on-background)"
+              }
+              fill={
+                heartClicked ? "var(--heart-clicked)" : "var(--on-background)"
+              }
+              height="24"
+              role="img"
+              viewBox={heartClicked ? "0 0 48 48" : "0 0 24 24"}
+              width="24"
+              className={`interaction-heart ${
+                heartClicked ? "heart-pump" : ""
+              }`}
+            />
           </span>
           <MessageGlobe className="interaction-svg" />
           <MessageSend className="interaction-svg" />
