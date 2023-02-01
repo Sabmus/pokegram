@@ -15,7 +15,7 @@ const router = createBrowserRouter([
         element: <Index />,
       },
       {
-        path: "explorar",
+        path: "explore",
         element: <div>explorar</div>,
       },
       {
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
         element: <div>Mensajes</div>,
       },
       {
-        path: "perfil",
+        path: "profile",
         element: <div>Perfil</div>,
       },
     ],

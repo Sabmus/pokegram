@@ -15,7 +15,12 @@ function Index() {
     fetchPosts();
   }, []);
 
-  return <PokePost posts={posts} />;
+  return (
+    <>
+      <PokePost posts={posts} />
+      <PokePost posts={posts} />
+    </>
+  );
 }
 
 export default Index;

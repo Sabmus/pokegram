@@ -3,7 +3,15 @@ import styled from "styled-components";
 export const PostWrapper = styled.div`
   width: 100%;
   max-width: 530px;
-  margin-top: 10px;
+  margin-top: 15px;
+  border: 1px solid transparent;
+  border-bottom-color: rgb(255 255 255 / 10%);
+
+  svg[class="interaction-svg"]:hover {
+    cursor: pointer;
+    fill: var(--on-background);
+    opacity: 50%;
+  }
 `;
 
 export const PostHeader = styled.div`
@@ -41,17 +49,9 @@ export const PostInteraction = styled.div`
         transform: scale(1.2);
       }
     }
-
-    svg[class="interaction-svg"]:hover {
-      cursor: pointer;
-      fill: var(--on-background);
-      opacity: 50%;
-    }
-
-    svg[class="interaction-heart"]:hover {
-      cursor: pointer;
-      fill: var(--heart-clicked);
-      opacity: 100%;
-    }
   }
+`;
+
+export const PostComment = styled.div`
+  margin-bottom: 15px;
 `;
