@@ -3,10 +3,12 @@ import styled from "styled-components";
 export const NavigationDiv = styled.div`
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 1rem;
   padding: var(--spacing-1) var(--spacing-xs);
   border-radius: var(--spacing-3);
   background-color: var(--background);
+  overflow: hidden;
+  height: 3.3rem;
 
   &:hover {
     cursor: pointer;

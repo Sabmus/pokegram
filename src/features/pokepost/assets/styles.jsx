@@ -9,8 +9,9 @@ export const PostWrapper = styled.div`
 
   svg[class="interaction-svg"]:hover {
     cursor: pointer;
-    fill: var(--on-background);
-    opacity: 50%;
+    fill: var(--secondary);
+    color: var(--secondary);
+    opacity: 40%;
   }
 `;
 

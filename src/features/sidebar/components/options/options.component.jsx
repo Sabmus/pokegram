@@ -1,13 +1,10 @@
+import { OptionsWrapper } from "./options.styles";
+
 function Options({ showOptions }) {
   return (
-    <div style={{ display: showOptions ? "block" : "none" }}>
-      <div>Aasdasd</div>
-      <div>Aasdasd</div>
-      <div>Aasdasd</div>
-      <div>Aasdasd</div>
-      <div>Aasdasd</div>
-      <div>Aasdasd</div>
-    </div>
+    <OptionsWrapper height={showOptions ? "200px" : "0px"}>
+      <div className={`${showOptions ? "show" : "not-show"}`}>Aasdasd</div>
+    </OptionsWrapper>
   );
 }
 
