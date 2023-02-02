@@ -27,12 +27,7 @@ function Search() {
           <Navigation>
             <span>foto</span>
             <span style={{ flexGrow: "1" }}>nombre</span>
-            <span>X</span>
-          </Navigation>
-          <Navigation>
-            <span>foto</span>
-            <span style={{ flexGrow: "1" }}>nombre</span>
-            <span>X</span>
+            <span>&times;</span>
           </Navigation>
         </LatestSearch>
       </LatestWrapper>

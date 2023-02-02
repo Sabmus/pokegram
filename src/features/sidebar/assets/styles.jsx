@@ -56,6 +56,7 @@ export const SideBarHiddenWrapper = styled.div`
   overflow: hidden;
 
   * {
-    display: ${(props) => (props.didWidthChange === "true" ? "block" : "none")};
+    visibility: ${(props) =>
+      props.didWidthChange === "true" ? "visible" : "hidden"};
   }
 `;

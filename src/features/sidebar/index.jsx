@@ -21,13 +21,23 @@ import {
 function Sidebar() {
   const [showOptions, setShowOptions] = useState(false);
   const [reduceSidebar, setReduceSidebar] = useState(false);
+  const [renderSidePanel, setRenderSidePanel] = useState("");
 
   const onClickShowOptions = () => {
     setShowOptions(!showOptions);
   };
 
-  const onClickReduceSidebar = () => {
-    setReduceSidebar(!reduceSidebar);
+  const onClickReduceSidebar = (title) => {
+    if (reduceSidebar && renderSidePanel !== title) {
+      setRenderSidePanel(title);
+    } else {
+      setReduceSidebar(!reduceSidebar);
+      setRenderSidePanel(title);
+    }
+  };
+
+  const onClickCloseSidebar = () => {
+    setReduceSidebar(false);
   };
 
   return (
@@ -45,7 +55,9 @@ function Sidebar() {
             <Link to={route.path} key={route.title}>
               <Navigation
                 onClickHandler={
-                  route.interactive ? onClickReduceSidebar : undefined
+                  route.interactive
+                    ? () => onClickReduceSidebar(route.title)
+                    : onClickCloseSidebar
                 }
               >
                 <span>
@@ -86,7 +98,13 @@ function Sidebar() {
         </div>
       </SidebarWrapper>
       <SideBarHiddenWrapper didWidthChange={reduceSidebar.toString()}>
-        <Search />
+        {renderSidePanel === "Search" ? (
+          <Search />
+        ) : renderSidePanel === "Notifications" ? (
+          <div>hello</div>
+        ) : (
+          <div></div>
+        )}
       </SideBarHiddenWrapper>
     </FixedSideWrapper>
   );
