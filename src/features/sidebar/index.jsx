@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import Navigation from "../../components/navigation/navigation.component";
 import Options from "./components/options/options.component";
+import Search from "./components/search/search.component";
 
 import routes from "../../data/routes";
 import SVG from "../../components/svg/svg.component";
@@ -14,6 +15,7 @@ import {
   NavigationWrapper,
   TitleWrapper,
   NavSpan,
+  SideBarHiddenWrapper,
 } from "./assets/styles";
 
 function Sidebar() {
@@ -83,6 +85,9 @@ function Sidebar() {
           </Navigation>
         </div>
       </SidebarWrapper>
+      <SideBarHiddenWrapper didWidthChange={reduceSidebar.toString()}>
+        <Search />
+      </SideBarHiddenWrapper>
     </FixedSideWrapper>
   );
 }

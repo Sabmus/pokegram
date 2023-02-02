@@ -46,3 +46,16 @@ export const SidebarWrapper = styled.div`
     }
   }
 `;
+
+export const SideBarHiddenWrapper = styled.div`
+  width: ${(props) => (props.didWidthChange === "true" ? "21rem" : "0px")};
+  transition: ${(props) =>
+    props.didWidthChange === "true"
+      ? "width 0.1s linear 0.2s"
+      : "width 0.4s ease"};
+  overflow: hidden;
+
+  * {
+    display: ${(props) => (props.didWidthChange === "true" ? "block" : "none")};
+  }
+`;

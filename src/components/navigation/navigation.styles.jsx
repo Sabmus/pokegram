@@ -9,6 +9,7 @@ export const NavigationDiv = styled.div`
   background-color: var(--background);
   overflow: hidden;
   height: 3.3rem;
+  width: 100%;
 
   &:hover {
     cursor: pointer;

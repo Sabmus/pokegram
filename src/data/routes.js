@@ -8,7 +8,7 @@ const routes = [
     interactive: false,
   },
   {
-    path: "/",
+    path: "#",
     title: "Search",
     svgPath: svgObj.search.svgChildren,
     interactive: true,
@@ -32,7 +32,7 @@ const routes = [
     interactive: false,
   },
   {
-    path: "/",
+    path: "#",
     title: "Notifications",
     svgPath: svgObj.notification.svgChildren,
     interactive: true,
