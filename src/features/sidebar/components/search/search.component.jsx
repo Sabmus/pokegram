@@ -1,7 +1,6 @@
 import Navigation from "../../../../components/navigation/navigation.component";
 
 import {
-  SearchWrapper,
   SearchBox,
   InputBox,
   LatestWrapper,
@@ -11,7 +10,7 @@ import {
 
 function Search() {
   return (
-    <SearchWrapper>
+    <>
       <SearchBox>
         <h2>Search</h2>
       </SearchBox>
@@ -31,7 +30,7 @@ function Search() {
           </Navigation>
         </LatestSearch>
       </LatestWrapper>
-    </SearchWrapper>
+    </>
   );
 }
 

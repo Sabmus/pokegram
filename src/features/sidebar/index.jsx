@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 
 import Navigation from "../../components/navigation/navigation.component";
 import Options from "./components/options/options.component";
+import SidebarInteractiveLayout from "./layout/layout.component";
 import Search from "./components/search/search.component";
+import Notification from "./components/notification/notification.component";
 
 import routes from "../../data/routes";
 import SVG from "../../components/svg/svg.component";
@@ -98,13 +100,15 @@ function Sidebar() {
         </div>
       </SidebarWrapper>
       <SideBarHiddenWrapper didWidthChange={reduceSidebar.toString()}>
-        {renderSidePanel === "Search" ? (
-          <Search />
-        ) : renderSidePanel === "Notifications" ? (
-          <div>hello</div>
-        ) : (
-          <div></div>
-        )}
+        <SidebarInteractiveLayout>
+          {renderSidePanel === "Search" ? (
+            <Search />
+          ) : renderSidePanel === "Notifications" ? (
+            <Notification />
+          ) : (
+            <div></div>
+          )}
+        </SidebarInteractiveLayout>
       </SideBarHiddenWrapper>
     </FixedSideWrapper>
   );

@@ -29,15 +29,6 @@ export const InputBox = styled.div`
   }
 `;
 
-export const SearchWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: var(--background);
-  height: 100vh;
-  border: 1px solid transparent;
-  border-right-color: rgb(255 255 255 / 10%);
-`;
-
 export const LatestWrapper = styled.div`
   padding: ${padding};
   display: flex;

@@ -3,6 +3,8 @@ export const svgObj = {
     svgChildren: (
       <path d="M22 23h-6.001a1 1 0 0 1-1-1v-5.455a2.997 2.997 0 1 0-5.993 0V22a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V11.543a1.002 1.002 0 0 1 .31-.724l10-9.543a1.001 1.001 0 0 1 1.38 0l10 9.543a1.002 1.002 0 0 1 .31.724V22a1 1 0 0 1-1 1Z"></path>
     ),
+    solid: <i class="fa-solid fa-house"></i>,
+    regular: <i class="fa-regular fa-house"></i>,
   },
   search: {
     svgChildren: (
@@ -28,6 +30,8 @@ export const svgObj = {
         ></line>
       </>
     ),
+    solid: <i class="fa-solid fa-magnifying-glass"></i>,
+    regular: <i class="fa-regular fa-magnifying-glass"></i>,
   },
   explore: {
     svgChildren: (
@@ -56,6 +60,8 @@ export const svgObj = {
         ></circle>
       </>
     ),
+    solid: <i class="fa-solid fa-compass"></i>,
+    regular: <i class="fa-regular fa-compass"></i>,
   },
   reel: {
     svgChildren: (
@@ -106,6 +112,8 @@ export const svgObj = {
         ></path>
       </>
     ),
+    solid: <i class="fa-solid fa-clapperboard"></i>,
+    regular: <i class="fa-regular fa-clapperboard"></i>,
   },
   inbox: {
     svgChildren: (
@@ -123,6 +131,8 @@ export const svgObj = {
         ></path>
       </>
     ),
+    solid: <i class="fa-solid fa-inbox"></i>,
+    regular: <i class="fa-regular fa-inbox"></i>,
   },
   notification: {
     svgChildren: (
@@ -131,6 +141,8 @@ export const svgObj = {
     svgChildrenClicked: (
       <path d="M34.6 3.1c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5s1.1-.2 1.6-.5c1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path>
     ),
+    solid: <i class="fa-solid fa-heart"></i>,
+    regular: <i class="fa-regular fa-heart"></i>,
   },
   create: {
     svgChildren: (
@@ -167,6 +179,8 @@ export const svgObj = {
         ></line>
       </>
     ),
+    solid: <i class="fa-solid fa-square-plus"></i>,
+    regular: <i class="fa-regular fa-square-plus"></i>,
   },
   comment: {
     svgChildren: (
@@ -178,6 +192,8 @@ export const svgObj = {
         strokeWidth="2"
       ></path>
     ),
+    solid: <i class="fa-solid fa-comment"></i>,
+    regular: <i class="fa-regular fa-comment"></i>,
   },
   send: {
     svgChildren: (
@@ -201,6 +217,8 @@ export const svgObj = {
         ></polygon>
       </>
     ),
+    solid: <i class="fa-solid fa-paper-plane"></i>,
+    regular: <i class="fa-regular fa-paper-plane"></i>,
   },
   save: {
     svgChildren: (
@@ -213,6 +231,8 @@ export const svgObj = {
         strokeWidth="2"
       ></polygon>
     ),
+    solid: <i class="fa-solid fa-bookmark"></i>,
+    regular: <i class="fa-regular fa-bookmark"></i>,
   },
   dots: {
     svgChildren: (
@@ -222,6 +242,8 @@ export const svgObj = {
         <circle cx="18" cy="12" r="1.5"></circle>
       </>
     ),
+    solid: <i class="fa-solid fa-ellipsis"></i>,
+    regular: <i class="fa-regular fa-ellipsis"></i>,
   },
   parallel: {
     svgChildren: (
@@ -261,5 +283,18 @@ export const svgObj = {
         ></line>
       </>
     ),
+    solid: <i class="fa-solid fa-bars"></i>,
+    regular: <i class="fa-regular fa-bars"></i>,
+  },
+  gt: {
+    svgChildren: (
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+      />
+    ),
+    solid: <i class="fa-solid fa-chevron-right"></i>,
+    regular: <i class="fa-regular fa-chevron-right"></i>,
   },
 };
