@@ -13,7 +13,7 @@ import {
 
 function Search() {
   return (
-    <>
+    <div>
       <SearchBox>
         <h2>Search</h2>
       </SearchBox>
@@ -45,7 +45,7 @@ function Search() {
           </Navigation>
         </LatestSearch>
       </LatestWrapper>
-    </>
+    </div>
   );
 }
 

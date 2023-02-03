@@ -25,11 +25,11 @@ import {
 
 function Sidebar() {
   const [showOptions, setShowOptions] = useState(false);
-  const [reduceSidebar, setReduceSidebar] = useState(false);
+  const [openExtraSidebar, setOpenExtraSidebar] = useState(false);
   const [renderSidePanel, setRenderSidePanel] = useState("");
 
   const onClickCloseSidebar = () => {
-    setReduceSidebar(false);
+    setOpenExtraSidebar(false);
   };
 
   const onClickCloseOptions = () => {
@@ -40,18 +40,18 @@ function Sidebar() {
     setShowOptions(!showOptions);
   };
 
-  const onClickReduceSidebar = (title) => {
-    if (reduceSidebar && renderSidePanel !== title) {
+  const onClickopenExtraSidebar = (title) => {
+    if (openExtraSidebar && renderSidePanel !== title) {
       setRenderSidePanel(title);
     } else {
-      setReduceSidebar(!reduceSidebar);
+      setOpenExtraSidebar(!openExtraSidebar);
       setRenderSidePanel(title);
     }
   };
 
-  const extraSidebarNode = useClickOutside(() => {
-    onClickCloseSidebar();
-  });
+  // const extraSidebarNode = useClickOutside(() => {
+  //   onClickCloseSidebar();
+  // });
 
   const optionsNode = useClickOutside(() => {
     onClickCloseOptions();
@@ -59,10 +59,10 @@ function Sidebar() {
 
   return (
     <FixedSideWrapper>
-      <SidebarWrapper didWidthChange={reduceSidebar.toString()}>
+      <SidebarWrapper didWidthChange={openExtraSidebar.toString()}>
         {/* Title */}
         <TitleWrapper>
-          <NavSpan didWidthChange={reduceSidebar.toString()}>
+          <NavSpan didWidthChange={openExtraSidebar.toString()}>
             <h3>Pokegram</h3>
           </NavSpan>
         </TitleWrapper>
@@ -73,7 +73,7 @@ function Sidebar() {
               <Navigation
                 onClickHandler={
                   route.interactive
-                    ? () => onClickReduceSidebar(route.title)
+                    ? () => onClickopenExtraSidebar(route.title)
                     : onClickCloseSidebar
                 }
               >
@@ -88,7 +88,7 @@ function Sidebar() {
                     width="24"
                   />
                 </span>
-                <NavSpan didWidthChange={reduceSidebar.toString()}>
+                <NavSpan didWidthChange={openExtraSidebar.toString()}>
                   {route.title}
                 </NavSpan>
               </Navigation>
@@ -110,21 +110,19 @@ function Sidebar() {
                 width="24"
               />
             </span>
-            <NavSpan didWidthChange={reduceSidebar.toString()}>Mas</NavSpan>
+            <NavSpan didWidthChange={openExtraSidebar.toString()}>Mas</NavSpan>
           </Navigation>
         </div>
       </SidebarWrapper>
-      <SideBarHiddenWrapper didWidthChange={reduceSidebar.toString()}>
+      <SideBarHiddenWrapper didWidthChange={openExtraSidebar.toString()}>
         <SidebarInteractiveLayout>
-          <div ref={extraSidebarNode}>
-            {renderSidePanel === "Search" ? (
-              <Search />
-            ) : renderSidePanel === "Notifications" ? (
-              <Notification />
-            ) : (
-              <div></div>
-            )}
-          </div>
+          {renderSidePanel === "Search" ? (
+            <Search />
+          ) : renderSidePanel === "Notifications" ? (
+            <Notification />
+          ) : (
+            <div></div>
+          )}
         </SidebarInteractiveLayout>
       </SideBarHiddenWrapper>
     </FixedSideWrapper>

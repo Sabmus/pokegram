@@ -2,10 +2,10 @@ import { useEffect, useRef } from "react";
 
 const useClickOutside = (cb) => {
   const domNode = useRef();
+  console.log(domNode.current);
 
   useEffect(() => {
     const handler = (event) => {
-      console.log(domNode.current);
       if (!domNode.current.contains(event.target)) {
         cb();
       }
@@ -16,7 +16,7 @@ const useClickOutside = (cb) => {
     return () => {
       document.removeEventListener("click", handler);
     };
-  });
+  }, [cb]);
 
   return domNode;
 };
