@@ -1,5 +1,8 @@
 import Navigation from "../../../../components/navigation/navigation.component";
 
+import SVG from "../../../../components/svg/svg.component";
+import { svgObj } from "../../../../data/svg";
+
 import {
   SearchBox,
   InputBox,
@@ -26,7 +29,19 @@ function Search() {
           <Navigation>
             <span>foto</span>
             <span style={{ flexGrow: "1" }}>nombre</span>
-            <span>&times;</span>
+            <span>
+              <SVG
+                path={svgObj.cancel.svgChildren}
+                color={"var(--on-background)"}
+                fill="none"
+                height="24"
+                width="24"
+                role="img"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={1.5}
+              />
+            </span>
           </Navigation>
         </LatestSearch>
       </LatestWrapper>

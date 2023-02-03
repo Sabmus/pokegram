@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import useClickOutside from "../../hooks/clickOutside";
+
 import Navigation from "../../components/navigation/navigation.component";
 import Options from "./components/options/options.component";
 import SidebarInteractiveLayout from "./layout/layout.component";
@@ -25,6 +27,14 @@ function Sidebar() {
   const [reduceSidebar, setReduceSidebar] = useState(false);
   const [renderSidePanel, setRenderSidePanel] = useState("");
 
+  const onClickCloseSidebar = () => {
+    setReduceSidebar(false);
+  };
+
+  const onClickCloseOptions = () => {
+    setShowOptions(false);
+  };
+
   const onClickShowOptions = () => {
     setShowOptions(!showOptions);
   };
@@ -38,9 +48,13 @@ function Sidebar() {
     }
   };
 
-  const onClickCloseSidebar = () => {
-    setReduceSidebar(false);
-  };
+  const extraSidebarNode = useClickOutside(() => {
+    onClickCloseSidebar();
+  });
+
+  const optionsNode = useClickOutside(() => {
+    onClickCloseOptions();
+  });
 
   return (
     <FixedSideWrapper>
@@ -52,7 +66,7 @@ function Sidebar() {
           </NavSpan>
         </TitleWrapper>
         {/* Navigation */}
-        <NavigationWrapper>
+        <NavigationWrapper ref={extraSidebarNode}>
           {routes.map((route) => (
             <Link to={route.path} key={route.title}>
               <Navigation
@@ -81,7 +95,7 @@ function Sidebar() {
           ))}
         </NavigationWrapper>
         {/* Options */}
-        <div>
+        <div ref={optionsNode}>
           <Options showOptions={showOptions} />
           <Navigation onClickHandler={onClickShowOptions}>
             <span>
