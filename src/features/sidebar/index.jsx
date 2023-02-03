@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -66,7 +67,7 @@ function Sidebar() {
           </NavSpan>
         </TitleWrapper>
         {/* Navigation */}
-        <NavigationWrapper ref={extraSidebarNode}>
+        <NavigationWrapper>
           {routes.map((route) => (
             <Link to={route.path} key={route.title}>
               <Navigation
@@ -115,13 +116,15 @@ function Sidebar() {
       </SidebarWrapper>
       <SideBarHiddenWrapper didWidthChange={reduceSidebar.toString()}>
         <SidebarInteractiveLayout>
-          {renderSidePanel === "Search" ? (
-            <Search />
-          ) : renderSidePanel === "Notifications" ? (
-            <Notification />
-          ) : (
-            <div></div>
-          )}
+          <div ref={extraSidebarNode}>
+            {renderSidePanel === "Search" ? (
+              <Search />
+            ) : renderSidePanel === "Notifications" ? (
+              <Notification />
+            ) : (
+              <div></div>
+            )}
+          </div>
         </SidebarInteractiveLayout>
       </SideBarHiddenWrapper>
     </FixedSideWrapper>

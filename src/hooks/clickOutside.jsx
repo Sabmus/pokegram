@@ -5,6 +5,7 @@ const useClickOutside = (cb) => {
 
   useEffect(() => {
     const handler = (event) => {
+      console.log(domNode.current);
       if (!domNode.current.contains(event.target)) {
         cb();
       }
