@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 
 const useClickOutside = (cb) => {
   const domNode = useRef();
-  console.log(domNode.current);
 
   useEffect(() => {
     const handler = (event) => {

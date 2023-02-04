@@ -40,6 +40,9 @@ function Sidebar() {
     setShowOptions(!showOptions);
   };
 
+  //const extraSidebarRef = useClickOutside(onClickCloseSidebar);
+  const optionsRef = useClickOutside(onClickCloseOptions);
+
   const onClickopenExtraSidebar = (title) => {
     if (openExtraSidebar && renderSidePanel !== title) {
       setRenderSidePanel(title);
@@ -48,14 +51,6 @@ function Sidebar() {
       setRenderSidePanel(title);
     }
   };
-
-  // const extraSidebarNode = useClickOutside(() => {
-  //   onClickCloseSidebar();
-  // });
-
-  const optionsNode = useClickOutside(() => {
-    onClickCloseOptions();
-  });
 
   return (
     <FixedSideWrapper>
@@ -96,7 +91,7 @@ function Sidebar() {
           ))}
         </NavigationWrapper>
         {/* Options */}
-        <div ref={optionsNode}>
+        <div ref={optionsRef}>
           <Options showOptions={showOptions} />
           <Navigation onClickHandler={onClickShowOptions}>
             <span>
