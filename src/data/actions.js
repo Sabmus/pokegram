@@ -1,0 +1,58 @@
+export const actions = [
+  {
+    title: "Home",
+    isLink: true,
+    path: "/",
+    isToggleExtraSidebar: false,
+    isModal: false,
+  },
+  {
+    title: "Search",
+    isLink: false,
+    path: null,
+    isToggleExtraSidebar: true,
+    isModal: false,
+  },
+  {
+    title: "Explore",
+    isLink: true,
+    path: "explore",
+    isToggleExtraSidebar: false,
+    isModal: false,
+  },
+  {
+    title: "Reels",
+    isLink: true,
+    path: "reels",
+    isToggleExtraSidebar: false,
+    isModal: false,
+  },
+  {
+    title: "Inbox",
+    isLink: true,
+    path: "direct/inbox",
+    isToggleExtraSidebar: false,
+    isModal: false,
+  },
+  {
+    title: "Notifications",
+    isLink: false,
+    path: null,
+    isToggleExtraSidebar: true,
+    isModal: false,
+  },
+  {
+    title: "Create",
+    isLink: false,
+    path: null,
+    isToggleExtraSidebar: false,
+    isModal: true,
+  },
+  {
+    title: "Profile",
+    isLink: true,
+    path: "profile",
+    isToggleExtraSidebar: false,
+    isModal: false,
+  },
+];

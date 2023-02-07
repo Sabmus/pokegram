@@ -1,127 +1,40 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
-import useClickOutside from "../../hooks/clickOutside";
+import Sidebar from "./components/sidebar/sidebar.component";
+import ExtraSidebar from "./components/extra-sidebar/extra-sidebar.component";
 
-import Navigation from "../../components/navigation/navigation.component";
-import Options from "./components/options/options.component";
-import SidebarInteractiveLayout from "./layout/layout.component";
-import Search from "./components/search/search.component";
-import Notification from "./components/notification/notification.component";
+import { actions } from "../../data/actions";
+import { FixedSideWrapper } from "./assets/styles";
 
-import routes from "../../data/routes";
-import SVG from "../../components/svg/svg.component";
-import { svgObj } from "../../data/svg";
+function SidebarParent() {
+  const [toggleExtraSidebar, setToggleExtraSidebar] = useState("");
+  const [didWidthChange, setDidWidthChange] = useState(false);
 
-import {
-  FixedSideWrapper,
-  SidebarWrapper,
-  NavigationWrapper,
-  TitleWrapper,
-  NavSpan,
-  SideBarHiddenWrapper,
-} from "./assets/styles";
+  const actionList = actions;
 
-function Sidebar() {
-  const [showOptions, setShowOptions] = useState(false);
-  const [openExtraSidebar, setOpenExtraSidebar] = useState(false);
-  const [renderSidePanel, setRenderSidePanel] = useState("");
-
-  const onClickCloseSidebar = () => {
-    setOpenExtraSidebar(false);
+  const handleWidthChange = () => {
+    setDidWidthChange(!didWidthChange);
   };
 
-  const onClickCloseOptions = () => {
-    setShowOptions(false);
-  };
-
-  const onClickShowOptions = () => {
-    setShowOptions(!showOptions);
-  };
-
-  //const extraSidebarRef = useClickOutside(onClickCloseSidebar);
-  const optionsRef = useClickOutside(onClickCloseOptions);
-
-  const onClickopenExtraSidebar = (title) => {
-    if (openExtraSidebar && renderSidePanel !== title) {
-      setRenderSidePanel(title);
-    } else {
-      setOpenExtraSidebar(!openExtraSidebar);
-      setRenderSidePanel(title);
-    }
+  const handleOnToggleExtraSidebar = (title) => {
+    setToggleExtraSidebar(title);
+    handleWidthChange();
   };
 
   return (
     <FixedSideWrapper>
-      <SidebarWrapper didWidthChange={openExtraSidebar.toString()}>
-        {/* Title */}
-        <TitleWrapper>
-          <NavSpan didWidthChange={openExtraSidebar.toString()}>
-            <h3>Pokegram</h3>
-          </NavSpan>
-        </TitleWrapper>
-        {/* Navigation */}
-        <NavigationWrapper>
-          {routes.map((route) => (
-            <Link to={route.path} key={route.title}>
-              <Navigation
-                onClickHandler={
-                  route.interactive
-                    ? () => onClickopenExtraSidebar(route.title)
-                    : onClickCloseSidebar
-                }
-              >
-                <span>
-                  <SVG
-                    path={route.svgPath}
-                    color={"var(--on-background)"}
-                    fill={"var(--on-background)"}
-                    height="24"
-                    role="img"
-                    viewBox="0 0 24 24"
-                    width="24"
-                  />
-                </span>
-                <NavSpan didWidthChange={openExtraSidebar.toString()}>
-                  {route.title}
-                </NavSpan>
-              </Navigation>
-            </Link>
-          ))}
-        </NavigationWrapper>
-        {/* Options */}
-        <div ref={optionsRef}>
-          <Options showOptions={showOptions} />
-          <Navigation onClickHandler={onClickShowOptions}>
-            <span>
-              <SVG
-                path={svgObj.parallel.svgChildren}
-                color={"var(--on-background)"}
-                fill={"var(--on-background)"}
-                height="24"
-                role="img"
-                viewBox="0 0 24 24"
-                width="24"
-              />
-            </span>
-            <NavSpan didWidthChange={openExtraSidebar.toString()}>Mas</NavSpan>
-          </Navigation>
-        </div>
-      </SidebarWrapper>
-      <SideBarHiddenWrapper didWidthChange={openExtraSidebar.toString()}>
-        <SidebarInteractiveLayout>
-          {renderSidePanel === "Search" ? (
-            <Search />
-          ) : renderSidePanel === "Notifications" ? (
-            <Notification />
-          ) : (
-            <div></div>
-          )}
-        </SidebarInteractiveLayout>
-      </SideBarHiddenWrapper>
+      <Sidebar
+        actionList={actionList}
+        onToggleExtraSidebar={handleOnToggleExtraSidebar}
+        didWidthChange={didWidthChange}
+      />
+      <ExtraSidebar
+        selection={toggleExtraSidebar}
+        didWidthChange={didWidthChange}
+      />
     </FixedSideWrapper>
   );
 }
 
-export default Sidebar;
+export default SidebarParent;
