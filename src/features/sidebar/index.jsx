@@ -13,13 +13,18 @@ function SidebarParent() {
 
   const actionList = actions;
 
-  const handleWidthChange = () => {
-    setDidWidthChange(!didWidthChange);
+  const handleWidthChange = (title) => {
+    if (!toggleExtraSidebar) {
+      setDidWidthChange(!didWidthChange);
+    }
+    if (toggleExtraSidebar && toggleExtraSidebar === title) {
+      setDidWidthChange(!didWidthChange);
+    }
   };
 
   const handleOnToggleExtraSidebar = (title) => {
     setToggleExtraSidebar(title);
-    handleWidthChange();
+    handleWidthChange(title);
   };
 
   return (
