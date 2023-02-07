@@ -1,9 +1,5 @@
-function ToggleExtraSidebar({ action, onToggleExtraSidebar, children }) {
-  const handleOnToggleClick = () => {
-    onToggleExtraSidebar(action.title);
-  };
-
-  return <div onClick={handleOnToggleClick}>{children}</div>;
+function ToggleExtraSidebar({ onToggle, children }) {
+  return <div onClick={onToggle}>{children}</div>;
 }
 
 export default ToggleExtraSidebar;

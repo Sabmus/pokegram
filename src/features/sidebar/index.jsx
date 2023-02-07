@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Sidebar from "./components/sidebar/sidebar.component";
 import ExtraSidebar from "./components/extra-sidebar/extra-sidebar.component";
@@ -8,35 +8,58 @@ import { actions } from "../../data/actions";
 import { FixedSideWrapper } from "./assets/styles";
 
 function SidebarParent() {
-  const [toggleExtraSidebar, setToggleExtraSidebar] = useState("");
+  const [toggleSearch, setToggleSearch] = useState(false);
+  const [toggleNotifications, setToggleNotifications] = useState(false);
   const [didWidthChange, setDidWidthChange] = useState(false);
 
   const actionList = actions;
 
-  const handleWidthChange = (title) => {
-    if (!toggleExtraSidebar) {
-      setDidWidthChange(!didWidthChange);
+  useEffect(() => {
+    if (toggleSearch || toggleNotifications) {
+      setDidWidthChange(true);
+    } else {
+      setDidWidthChange(false);
     }
-    if (toggleExtraSidebar && toggleExtraSidebar === title) {
-      setDidWidthChange(!didWidthChange);
+  }, [toggleSearch, toggleNotifications]);
+
+  const handleContraryRender = (component) => {
+    if (toggleSearch && component === "notification") {
+      setToggleSearch(false);
+    }
+    if (toggleNotifications && component === "search") {
+      setToggleNotifications(false);
     }
   };
 
-  const handleOnToggleExtraSidebar = (title) => {
-    setToggleExtraSidebar(title);
-    handleWidthChange(title);
+  const handleToggleSearch = () => {
+    setToggleSearch(!toggleSearch);
+    handleContraryRender("search");
+  };
+
+  const handleToggleNotifications = () => {
+    setToggleNotifications(!toggleNotifications);
+    handleContraryRender("notification");
+  };
+
+  const closeExtraSidebar = () => {
+    if (didWidthChange && !(toggleSearch || toggleNotifications)) {
+      setDidWidthChange(false);
+    }
   };
 
   return (
     <FixedSideWrapper>
       <Sidebar
         actionList={actionList}
-        onToggleExtraSidebar={handleOnToggleExtraSidebar}
+        onToggleSearch={handleToggleSearch}
+        onToggleNotifications={handleToggleNotifications}
         didWidthChange={didWidthChange}
       />
       <ExtraSidebar
-        selection={toggleExtraSidebar}
+        toggleSearch={toggleSearch}
+        toggleNotifications={toggleNotifications}
         didWidthChange={didWidthChange}
+        closeExtraSidebar={closeExtraSidebar}
       />
     </FixedSideWrapper>
   );

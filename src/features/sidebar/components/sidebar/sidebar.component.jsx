@@ -7,7 +7,12 @@ import {
   TitleWrapper,
 } from "./sidebar.styles";
 
-function Sidebar({ actionList, onToggleExtraSidebar, didWidthChange }) {
+function Sidebar({
+  actionList,
+  onToggleSearch,
+  onToggleNotifications,
+  didWidthChange,
+}) {
   return (
     <SidebarWrapper didWidthChange={didWidthChange}>
       {/* Title */}
@@ -20,7 +25,8 @@ function Sidebar({ actionList, onToggleExtraSidebar, didWidthChange }) {
       <NavigationWrapper>
         <InteractionList
           actionList={actionList}
-          onToggleExtraSidebar={onToggleExtraSidebar}
+          onToggleSearch={onToggleSearch}
+          onToggleNotifications={onToggleNotifications}
         />
       </NavigationWrapper>
       {/* Options */}

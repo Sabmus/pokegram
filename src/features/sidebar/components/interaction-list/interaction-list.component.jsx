@@ -1,15 +1,20 @@
 import Interaction from "../interaction/interaction.component";
 
-function InteractionList({ actionList, onToggleExtraSidebar }) {
+function InteractionList({
+  actionList,
+  onToggleSearch,
+  onToggleNotifications,
+}) {
   const actions = actionList.map((action) => (
     <Interaction
       key={action.title}
       action={action}
-      onToggleExtraSidebar={onToggleExtraSidebar}
+      onToggleSearch={onToggleSearch}
+      onToggleNotifications={onToggleNotifications}
     />
   ));
 
-  return actions;
+  return <div>{actions}</div>;
 }
 
 export default InteractionList;

@@ -6,7 +6,7 @@ import { svgObj } from "../../../../data/svg";
 
 function Notification() {
   return (
-    <>
+    <div>
       <FollowerNotification>
         <h2>Notifications</h2>
       </FollowerNotification>
@@ -29,7 +29,7 @@ function Notification() {
           </span>
         </Navigation>
       </FollowerRequest>
-    </>
+    </div>
   );
 }
 

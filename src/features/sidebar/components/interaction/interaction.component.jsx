@@ -5,7 +5,7 @@ import ToggleModal from "../toggle-modal/toggle-modal.component";
 
 import { InteractionDiv } from "./interaction.styles";
 
-function Interaction({ action, onToggleExtraSidebar }) {
+function Interaction({ action, onToggleSearch, onToggleNotifications }) {
   if (action.isLink) {
     return (
       <Link to={action.path}>
@@ -14,12 +14,17 @@ function Interaction({ action, onToggleExtraSidebar }) {
     );
   }
 
-  if (action.isToggleExtraSidebar) {
+  if (action.isToggleSearch) {
     return (
-      <ToggleExtraSidebar
-        action={action}
-        onToggleExtraSidebar={onToggleExtraSidebar}
-      >
+      <ToggleExtraSidebar onToggle={onToggleSearch}>
+        <InteractionDiv>{action.title}</InteractionDiv>
+      </ToggleExtraSidebar>
+    );
+  }
+
+  if (action.isToggleNotifications) {
+    return (
+      <ToggleExtraSidebar onToggle={onToggleNotifications}>
         <InteractionDiv>{action.title}</InteractionDiv>
       </ToggleExtraSidebar>
     );
